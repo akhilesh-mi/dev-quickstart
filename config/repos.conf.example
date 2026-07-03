@@ -1,0 +1,12 @@
+# Repos to clone + the branch to check out (production branch).
+# Copy this to config/repos.conf and fill in real values.
+# Get the repo list and prod branches from your onboarding contact.
+#
+# repos.conf is gitignored — it never gets committed.
+#
+# format:  name | prod-branch
+#
+# example:
+# my-backend-service   | master
+# my-worker            | main
+# my-frontend          | production

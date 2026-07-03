@@ -1,0 +1,8 @@
+# local, per-dev — never commit
+config/repos.conf
+auth/credentials.json
+auth/token.json
+*.env
+*.local
+.DS_Store
+__pycache__/
