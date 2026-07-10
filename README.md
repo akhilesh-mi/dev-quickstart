@@ -74,8 +74,9 @@ to use it — so Claude uses these tools automatically, without you explaining t
 
 ## For the maintainer
 
-- Edit **`config/connectors.conf`** to set the real contact email / help URL / note for each
-  connector (the `CHANGEME@` placeholders).
+- **`config/connectors.conf`** works as-is — each connector's note tells the dev what to arrange
+  themselves. Optionally add a `contact` email or `help_url` per connector if you want the tool to
+  point devs at a specific person/page.
 - Distribute the shared Gmail/Drive **`credentials.json`** privately (not via this repo) — each dev
   drops it into `~/.mi_gmail_ack/` and OAuths into their own `token.json`.
 - Share the repo list + prod branches with devs so they can fill `config/repos.conf`
