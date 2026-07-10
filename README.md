@@ -9,12 +9,22 @@ type ever leaves your machine or lands in a chat transcript.
 
 ## Quick start
 
+One command — paste it into your terminal:
+
 ```bash
-git clone https://github.com/akhilesh-mi/dev-quickstart.git
-cd dev-quickstart
-./install.sh            # puts `dev-quickstart` on your PATH
-dev-quickstart          # opens the interactive menu
+curl -fsSL https://raw.githubusercontent.com/akhilesh-mi/dev-quickstart/main/boot.sh | bash
 ```
+
+It clones the tool, puts `dev-quickstart` on your PATH, and opens the menu. After that, just run
+`dev-quickstart` anytime to add or repair connections.
+
+<details>
+<summary>Prefer to clone it yourself?</summary>
+
+```bash
+git clone https://github.com/akhilesh-mi/dev-quickstart.git && cd dev-quickstart && ./install.sh
+```
+</details>
 
 You'll see a checklist. Pick the connections you have credentials for — in any order, as many or
 as few as you like — and come back later to add the rest:
@@ -59,6 +69,14 @@ Two mechanisms, both handled for you:
 
 The tool also installs a block into your global `~/.claude/CLAUDE.md` describing what exists and how
 to use it — so Claude uses these tools automatically, without you explaining them each session.
+
+**After setup:**
+- **Start a fresh Claude Code session** so it loads the new MCP servers and the CLAUDE.md block.
+- If you added **Notion or Jira**, run `/mcp` inside Claude Code once to finish the browser sign-in.
+- **Connect the VPN** before asking about anything behind it (repos clone, databases, Metabase, S3).
+
+Then just ask — e.g. *"where is GSTR-1 upload handled?"* (graphify), *"how many active users last
+week?"* (Metabase/DB), *"summarize AUT-8281"* (Jira). Claude picks the right tool on its own.
 
 ## Where things get saved
 
