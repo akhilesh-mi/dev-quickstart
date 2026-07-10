@@ -12,7 +12,7 @@ Per-user credential/config files (all mode 0600, in $HOME):
 - **Metabase** — `~/.mi_metabase_session` → `MI_METABASE_URL`, `MI_METABASE_SESSION` (expires; re-run if 401).
 - **S3 raw-archive** — `~/.mi_s3_creds.env` → `AWS_ACCESS_KEY_ID/SECRET_ACCESS_KEY/DEFAULT_REGION`. Read-only.
 - **Gmail + Drive** (acts as the user) — `~/.mi_gmail_ack/{credentials.json,token.json}`, scopes gmail.send + drive.
-- **Repos** — cloned under the workspace dir (default `~/Documents/mastersindia`), checked out on prod branches.
+- **Repos** — the user's repo folder is recorded in `~/.mi_workspace` (cat it for the path); repos live there.
 - **Graphify** — `graphify` CLI on PATH; per-repo graphs in each repo's `graphify-out/`.
 - **Notion / Jira+Confluence** — user-scope MCP servers (`claude mcp list`), authorized as the user.
 

@@ -16,7 +16,10 @@ while IFS= read -r _n; do CONNECTORS+=("$_n"); done < <(list_connector_names)
 main() {
   local cmd="${1:-menu}"
   case "$cmd" in
-    menu|"")      menu_loop; maybe_install_claude_block; printf '\n'; ok "Done. Re-run 'dev-quickstart' anytime to add more." ;;
+    menu|"")      menu_loop; maybe_install_claude_block
+                  printf '\n'; hr; say "Here's what's set up:"; print_status
+                  printf '\n'; ok "Done. Re-run 'dev-quickstart' anytime to add more."
+                  dim "Now start a fresh Claude Code session — it'll pick these up automatically." ;;
     status)       print_status ;;
     list)         list_connectors_pretty ;;
     add)          shift; if [ -n "${1:-}" ]; then run_connector "$1"; maybe_install_claude_block; else err "usage: dev-quickstart add <name>"; return 1; fi ;;

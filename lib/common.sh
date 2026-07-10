@@ -83,6 +83,16 @@ pointer() {       # $1=name
   c="$(contact_for "$1")"; [ -n "$c" ] && dim "  · Need access? Contact: $c"
 }
 
+# ---- MCP helpers ------------------------------------------------------------
+# True if an MCP server is REGISTERED (config only — no slow/flaky health check).
+_mcp_registered() {   # $1 = egrep name pattern, e.g. "notion" or "atlassian|jira"
+  local f
+  for f in "$HOME/.claude.json" "$HOME/.claude/settings.json"; do
+    [ -f "$f" ] && grep -qiE "\"($1)\"[[:space:]]*:" "$f" && return 0
+  done
+  command -v claude >/dev/null 2>&1 && claude mcp list 2>/dev/null | grep -qiE "$1"
+}
+
 # ---- global CLAUDE.md block -------------------------------------------------
 CLAUDE_MD="$HOME/.claude/CLAUDE.md"
 CLAUDE_BEGIN="<!-- dev-quickstart:begin -->"

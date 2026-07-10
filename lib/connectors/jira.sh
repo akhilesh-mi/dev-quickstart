@@ -1,10 +1,7 @@
 # shellcheck shell=bash
 # Jira / Confluence — Atlassian MCP server for Claude Code (OAuth as you).
 
-c_jira_status() {
-  command -v claude >/dev/null 2>&1 || return 1
-  claude mcp list 2>/dev/null | grep -qi -e atlassian -e jira
-}
+c_jira_status() { _mcp_registered "atlassian|jira"; }
 
 c_jira_setup() {
   pointer jira

@@ -15,7 +15,8 @@ status_mark() {   # $1=name -> echoes coloured ✓/○
 render_menu() {
   printf '\n'
   printf '%s Masters India — dev-quickstart %s\n' "$C_BOLD" "$C_RESET"
-  dim ' Pick the connections you have credentials for. Come back anytime to add more.'
+  dim ' Most devs need just: Repos + Graphify. Add VPN/DB/etc. only if you use them.'
+  dim ' Pick the ones you want. ✓ = done, ○ = not set. Come back anytime to add more.'
   printf '\n'
   local i=1 name
   for name in "${CONNECTORS[@]}"; do

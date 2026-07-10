@@ -1,10 +1,7 @@
 # shellcheck shell=bash
 # Notion — registered as a user-scope MCP server for Claude Code (OAuth as you).
 
-c_notion_status() {
-  command -v claude >/dev/null 2>&1 || return 1
-  claude mcp list 2>/dev/null | grep -qi notion
-}
+c_notion_status() { _mcp_registered "notion"; }
 
 c_notion_setup() {
   pointer notion
